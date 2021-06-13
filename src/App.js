@@ -88,7 +88,7 @@ export default class App extends Component {
 
             if (jsonResponse.cards.length < 20) results.isLastPage = true;
 
-            return { results };
+            return { results, loading: false };
 
           });
 
@@ -98,6 +98,8 @@ export default class App extends Component {
 
   }
 
+
+  // Fetches more content when the user reaches the bottom of the page.
   handleScroll() {
 
     const app = document.getElementById('app');
@@ -123,7 +125,7 @@ export default class App extends Component {
 
   render() {
 
-    const { query, isLoading, results } = this.state;
+    const { query, loading, results } = this.state;
 
     return(
       <div id="app">
@@ -142,7 +144,7 @@ export default class App extends Component {
             results={results}
           />
         }
-        {isLoading && <Loading />}
+        {loading && !results.isLastPage && <Loading />}
         {results.isLastPage &&
           <h3 id="showing-all-results">Showing All Results</h3>
         }
