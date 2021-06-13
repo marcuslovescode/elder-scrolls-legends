@@ -1,0 +1,39 @@
+@keyframes loading {
+
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 100%;
+    left: 0;
+  }
+
+  100% {
+    width: 0%;
+    left: 100%
+  }
+
+}
+
+#loading-container {
+  width: 80%;
+  margin: 20px auto;
+  position: relative;
+}
+
+#loading-container h2 {
+  font-size: 35px;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+#loading-container div {
+  border-bottom: 1px solid #777;
+  height: 1px;
+  width: 25px;
+  position: absolute;
+  animation: loading 1s linear 0s infinite alternate;
+}
